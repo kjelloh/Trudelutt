@@ -2,10 +2,13 @@
 #include <memory>
 #include "FrontEnd.h"
 
+using ActualFrontEnd = FrontEnd<Console>;
+
 int main() {
     int result = 0;
     try {
-        auto front_end = std::make_shared<FrontEnd>();
+        auto front_end = std::make_shared<ActualFrontEnd>();
+        front_end->run();
     }
     catch (std::runtime_error& e) {
         std::cout << "\nFailed. Exception = " << e.what();
